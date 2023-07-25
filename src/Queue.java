@@ -24,6 +24,9 @@ public class Queue extends SinglyLinkedList{
 	}
 	
 	public void printQueue() {
-		
+		for (int i = 0; i < this.getCount(); i++) {
+			//print out each element in queue
+			//System.out.println();
+		}
 	}
 }
