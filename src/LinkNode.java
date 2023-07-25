@@ -2,18 +2,20 @@ public class LinkNode {
 
     private Currency data;
 
-    private Currency next;
+    private LinkNode next;
 
-    public LinkNode(Currency data, Currency next) {
+    public LinkNode(Currency data) {
         this.data = data;
-        this.next = next;
+        this.next = null;
     }
+
+
 
     public Currency getData() {
         return data;
     }
 
-    public Currency getNext() {
+    public LinkNode getNext() {
         return next;
     }
 
@@ -21,7 +23,7 @@ public class LinkNode {
         this.data = data;
     }
 
-    public void setNext(Currency next) {
+    public void setNext(LinkNode next) {
         this.next = next;
     }
 

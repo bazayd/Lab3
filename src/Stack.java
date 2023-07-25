@@ -16,6 +16,7 @@ public class Stack extends SinglyLinkedList{
 		 * new node.data = obj data
 		 */
 		this.setCount(this.getCount() + 1);
+		LinkNode newNode = new LinkNode(obj);
 		//LinkNode newNode = new LinkNode(obj.getData(), obj.getNext());
 		//newNode.setData() = obj.getData();
 		
