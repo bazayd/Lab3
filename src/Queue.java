@@ -65,9 +65,11 @@ public class Queue extends SinglyLinkedList{
 	}
 	
 	public void printQueue() {
-		for (int i = 0; i < this.getCount(); i++) {
-			//print out each element in queue
-			//System.out.println();
+		LinkNode node = getStart();
+
+		while (node != null) {
+			System.out.println(node.getData()+" ");
+			node = node.getNext();
 		}
 	}
 }

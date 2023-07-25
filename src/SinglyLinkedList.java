@@ -1,4 +1,5 @@
 import org.w3c.dom.Node;
+import org.w3c.dom.css.CSSImportRule;
 
 public class SinglyLinkedList {
 
@@ -7,13 +8,17 @@ public class SinglyLinkedList {
 
     private LinkNode end;
 
-    public SinglyLinkedList(int count, LinkNode start, LinkNode end) {
-        this.count = count;
+    public SinglyLinkedList() {
+        this.count = 0;
+        this.start = null;
+        this.end = null;
+    }
+
+    public SinglyLinkedList(LinkNode start, LinkNode end) {
+        this.count = 0;
         this.start = start;
         this.end = end;
     }
-
-
 
     public int getCount() {
         return count;
@@ -39,11 +44,33 @@ public class SinglyLinkedList {
         this.end = end;
     }
 
-    public void addCurrency(Currency currency, LinkNode index) {
+    public void addCurrency(Currency currency, int index) {
+        if (index < 0 || index > count) {
+            throw new IllegalArgumentException("Index is out of bounds.");
+        }
 
+        LinkNode node = new LinkNode(currency);
+
+        if (index == 0) {
+            node.setNext(start);
+            start = node;
+            if (count == 0) {
+                end = node;
+            }
+        }else if (index == count) {
+            end.setNext(node);
+            end = node;
+        }else {
+            LinkNode previousNode = getNodeIndex(index - 1);
+            node.setNext(previousNode.getNext());
+            previousNode.setNext(node);
+        }
+
+        count++;
     }
 
-    public void removeCurrency(Currency currency) {
+    public Currency removeCurrency(Currency currency) {
+        return null;
 
     }
 
@@ -67,6 +94,22 @@ public class SinglyLinkedList {
 
     public int countCurrency() {
         return 1;
+    }
+
+    private LinkNode getNodeIndex(int index) {
+        LinkNode node = start;
+
+        int currIndex = 0;
+
+        while (currIndex < index) {
+            node = node.getNext();
+            currIndex++;
+
+            if (node == null) {
+                throw new IndexOutOfBoundsException("Index out of bounds.");
+            }
+        }
+        return node;
     }
 
 }
