@@ -9,14 +9,17 @@ public class Queue extends SinglyLinkedList{
 	}
 	
 	public Currency deQueue() {
+		return null;
 		
 	}
 	
 	public Currency peekFront() {
+		return null;
 		
 	}
 	
 	public Currency peekRear() {
+		return null;
 		
 	}
 	

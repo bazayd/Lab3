@@ -9,10 +9,12 @@ public class Stack extends SinglyLinkedList{
 	}
 	
 	public Currency pop(Currency obj) {
+		return null;
 		
 	}
 	
 	public Currency peek() {
+		return null;
 		
 	}
 	
