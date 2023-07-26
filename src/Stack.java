@@ -4,8 +4,8 @@ public class Stack extends SinglyLinkedList{
 	 * end is top of stack
 	 * start is bottom of stack
 	 */
-	public Stack(int count, LinkNode start, LinkNode end) {
-        super(count, start, end);
+	public Stack(LinkNode start, LinkNode end) {
+        super(start, end);
     }
 	
 	public void push(Currency obj) {

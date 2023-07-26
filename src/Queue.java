@@ -2,8 +2,8 @@ public class Queue extends SinglyLinkedList{
 
 
 	
-	public Queue(int count, LinkNode start, LinkNode end) {
-		super(count, start, end);
+	public Queue(LinkNode start, LinkNode end) {
+		super(start, end);
 	}
 	
 	public void enQueue(Currency obj) {
