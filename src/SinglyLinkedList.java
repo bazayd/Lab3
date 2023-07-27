@@ -154,6 +154,15 @@ public class SinglyLinkedList {
     }
 
     public LinkNode findCurrency(Currency currency) {
+    	LinkNode findNode = start;
+    	
+    	while(findNode != null) {
+    		if (findNode.getData().equals(currency)) {
+    			return findNode;
+    		}else {
+    			findNode = findNode.getNext();
+    		}
+    	}
         return null;
     }
 
@@ -170,7 +179,7 @@ public class SinglyLinkedList {
     }
 
     public int countCurrency() {
-        return 1;
+        return count;
     }
 
     private LinkNode getNodeIndex(int index) {
