@@ -35,33 +35,61 @@ public class Main {
         Queue queue = new Queue(null, null);
         
         //Code for SinglyLinkedList
-        int count = 0;
-        for (int i = 6; i >= 0; i--) {
-        	list.addCurrency(currencies[i], count);
-        	count++;
-        }
-        
-        System.out.println(list.printList());
-        
-//        System.out.println(list.findCurrency(new Dollar(87.43)));
-//        System.out.println(list.findCurrency(new Dollar(44.56)));
-        
-        System.out.println(list.removeCurrency(new Dollar(111.22)));
-        list.removeCurrency(2);
-        System.out.println(list.printList());
+//        int count = 0;
+//        for (int i = 6; i >= 0; i--) {
+//        	list.addCurrency(currencies[i], count);
+//        	count++;
+//        }
 //        
-        for (int i = 9; i <= 12; i++) {
-        	list.addCurrency(currencies[i], i % 5);
-        }
-        System.out.println(list.printList());
-        
-        list.removeCurrency(list.getCount() % 6);
-        System.out.println(list.printList());
-        list.removeCurrency(list.getCount() / 7);
-        System.out.println(list.printList());
+//        System.out.println(list.printList());
+//        
+////        System.out.println(list.findCurrency(new Dollar(87.43)));
+////        System.out.println(list.findCurrency(new Dollar(44.56)));
+//        
+//        System.out.println(list.removeCurrency(new Dollar(111.22)));
+//        list.removeCurrency(2);
+//        System.out.println(list.printList());
+////        
+//        for (int i = 9; i <= 12; i++) {
+//        	list.addCurrency(currencies[i], i % 5);
+//        }
+//        System.out.println(list.printList());
+//        
+//        list.removeCurrency(list.getCount() % 6);
+//        System.out.println(list.printList());
+//        list.removeCurrency(list.getCount() / 7);
+//        System.out.println(list.printList());
         
       //Code for Stack
+        for (int i = 13; i < 20; i++) {
+        	stack.push(currencies[i]);
+        }
+        stack.printStack();
+        System.out.println(stack.peek());
+        //stack.pop();
+        System.out.println(" ");
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
         
+        System.out.println(" ");
+        
+        stack.printStack();
+        
+        System.out.println(" ");
+        for (int i = 0; i < 5; i++) {
+        	stack.push(currencies[i]);
+        }
+        
+        stack.printStack();
+        
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(" ");
+        
+        stack.printStack();
+//        stack.pop();
+//        stack.pop();
       //Code for Queue
 
     }
