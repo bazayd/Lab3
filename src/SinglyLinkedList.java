@@ -166,16 +166,41 @@ public class SinglyLinkedList {
         return null;
     }
 
-    public Currency getCurrency(LinkNode index) {
-        return null;
+    public Currency getCurrency(int index) {
+    	/*
+    	 * loop index times
+    	 * return node once the loop ends
+    	 */
+    	
+    	LinkNode curNode = start;
+    	
+    	for (int i = 0; i < index; i++) {
+    		curNode = curNode.getNext();
+    	}
+        return curNode.getData();
     }
 
     public String printList() {
-        return "";
+    	/*
+    	 * loop count times
+    	 * keep on getting the next and its data
+    	 * print out the data each time
+    	 */
+    	LinkNode curNode = start;
+    	String resList = "";
+    	
+    	for (int i = 0; i < count; i++) {
+    		
+    		resList += (curNode.getData() + "	");
+    		curNode = curNode.getNext();
+    		
+    	}
+    	
+        return resList;
     }
 
     public boolean isListEmpty() {
-        return false;
+        return start == null;
     }
 
     public int countCurrency() {
