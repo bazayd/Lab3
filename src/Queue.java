@@ -2,42 +2,49 @@ public class Queue extends SinglyLinkedList{
 
 
 	
-	public Queue(LinkNode start, LinkNode end) {
-		super(start, end);
+	public Queue() {
+		super();
 	}
+
+	public Queue(LinkNode start, LinkNode end) {
+		this.count = 0;
+		this.start = start;
+		this.end = end;
+	}
+
 	
-	public void enQueue(Currency obj) {
+	public void enQueue(Currency currency) {
 
-		LinkNode front = getStart();
-		LinkNode rear = getEnd();
-		LinkNode next = rear.getNext();
-		int count = getCount();
 
-		LinkNode temp = new LinkNode(obj);
+		LinkNode node = new LinkNode(currency);
 
-		if (front == null) {
-			rear = temp;
-			front = rear;
+		if (isListEmpty()) {
+			start = node;
 		}else {
-			next = temp;
-			rear = next;
+
+			end.setNext(node);
 		}
-		++count;
+		end = node;
+		count++;
 	}
 	
 	public Currency deQueue() {
-		LinkNode front = getStart();
-		LinkNode rear = getEnd();
-		int count = getCount();
+
+//		if (isListEmpty()) {
+//			throw new IllegalArgumentException("Cannot deQueue from an empty Queue.");
+//		}
+
+		Currency currency = start.getData();
 
 
-		if(front != null) {
-			Currency removed = front.getData();
-			front = front.getNext();
-			--count;
-			return removed;
+		start = start.getNext();
+
+
+		if(isListEmpty()) {
+			end = null;
 		}
-		return null;
+		count--;
+		return currency;
 	}
 	
 	public Currency peekFront() {
@@ -65,11 +72,13 @@ public class Queue extends SinglyLinkedList{
 	}
 	
 	public void printQueue() {
-		LinkNode node = getStart();
+		StringBuilder queueString = new StringBuilder();
+		LinkNode node = start;
 
 		while (node != null) {
-			System.out.println(node.getData()+" ");
+			queueString.append(node.getData().toString()).append("\n");
 			node = node.getNext();
 		}
+		System.out.println(queueString);
 	}
 }

@@ -32,7 +32,7 @@ public class Main {
         //Create LInked list Stack and Queue Objects
         SinglyLinkedList list = new SinglyLinkedList();
         Stack stack = new Stack(null, null);
-        Queue queue = new Queue(null, null);
+        Queue queue = new Queue();
         
         //Code for SinglyLinkedList
         int count = 0;
@@ -59,10 +59,31 @@ public class Main {
         System.out.println(list.printList());
         list.removeCurrency(list.getCount() / 7);
         System.out.println(list.printList());
-        
+        System.out.println("End of linked list");
       //Code for Stack
         
       //Code for Queue
+        for (int i = 5; i < currencies.length; i++) {
+            if (i % 2 == 1) {
+                queue.enQueue(currencies[i]);
+            }
+        }
+        queue.printQueue();
 
+        System.out.println("Front of the queue: " + queue.peekFront());
+        System.out.println("End of the queue: " + queue.peekRear());
+
+        queue.deQueue();
+        queue.deQueue();
+        queue.printQueue();
+
+        for (int i = 10; i <= 15; i++) {
+            queue.enQueue(currencies[i]);
+        }
+
+        queue.deQueue();
+        queue.deQueue();
+        queue.deQueue();
+        queue.printQueue();
     }
 }

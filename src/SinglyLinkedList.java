@@ -3,10 +3,10 @@ import org.w3c.dom.css.CSSImportRule;
 
 public class SinglyLinkedList {
 
-    private int count;
-    private LinkNode start;
+    protected int count;
+    protected LinkNode start;
 
-    private LinkNode end;
+    protected LinkNode end;
 
     public SinglyLinkedList() {
         this.count = 0;
@@ -19,6 +19,7 @@ public class SinglyLinkedList {
         this.start = start;
         this.end = end;
     }
+
 
     public int getCount() {
         return count;
