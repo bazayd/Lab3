@@ -49,8 +49,8 @@ public class Queue extends SinglyLinkedList{
 	
 	public Currency peekFront() {
 
-		LinkNode front = getStart();
-		Currency currency = front.getData();
+
+		Currency currency = start.getData();
 
 		if (currency != null) {
 			return currency;
@@ -61,8 +61,7 @@ public class Queue extends SinglyLinkedList{
 	
 	public Currency peekRear() {
 
-		LinkNode rear = getEnd();
-		Currency currency = rear.getData();
+		Currency currency = end.getData();
 
 		if (currency != null) {
 			return currency;

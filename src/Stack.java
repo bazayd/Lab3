@@ -20,17 +20,23 @@ public class Stack extends SinglyLinkedList{
 		this.setCount(this.getCount() + 1);
 		LinkNode newNode = new LinkNode(obj);
 		
-		LinkNode bottom = getStart();
-		LinkNode top = getEnd();
-		LinkNode nextNode = bottom.getNext();
+		LinkNode top = getStart();
+		newNode.setNext(top);
+		setStart(newNode);
 		
-		if (top == null) {
-			top = newNode;
-			bottom = top;
-			nextNode = null;
-		}else {
-			top = newNode;
-		}
+//		LinkNode bottom = getStart();
+//		LinkNode top = getEnd();
+//		LinkNode nextNode;
+//		
+//		if (this.getCount() == 0) {
+//			top = newNode;
+//			bottom = top;
+//			nextNode = null;
+//		}else {
+//			top = newNode;
+//			nextNode = bottom.getNext();
+//		}
+		
 		
 		
 	}
@@ -38,20 +44,21 @@ public class Stack extends SinglyLinkedList{
 	public Currency pop() {
 		
 		this.setCount(this.getCount() - 1);
-		LinkNode topNode = getEnd();
+		LinkNode topNode = getStart();
+		Currency removed = topNode.getData();
+		setStart(topNode.getNext());
 		return topNode.getData();
 		
 	}
 	
 	public Currency peek() {
-		LinkNode top = getEnd();
+		LinkNode top = getStart();
 		return top.getData();
 		
 	}
 	
 	public void printStack() {
 		LinkNode cur = getStart();
-		
 		while(cur != null) {
 			System.out.println(cur.getData()+ " ");
 			cur = cur.getNext();

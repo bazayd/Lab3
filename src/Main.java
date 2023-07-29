@@ -40,16 +40,8 @@ public class Main {
         	list.addCurrency(currencies[i], count);
         	count++;
         }
-        
-        System.out.println(list.printList());
-        
-//        System.out.println(list.findCurrency(new Dollar(87.43)));
-//        System.out.println(list.findCurrency(new Dollar(44.56)));
-        
-        System.out.println(list.removeCurrency(new Dollar(111.22)));
-        list.removeCurrency(2);
-        System.out.println(list.printList());
-//        
+
+
         for (int i = 9; i <= 12; i++) {
         	list.addCurrency(currencies[i], i % 5);
         }
@@ -60,30 +52,62 @@ public class Main {
         list.removeCurrency(list.getCount() / 7);
         System.out.println(list.printList());
         System.out.println("End of linked list");
+
       //Code for Stack
+        for (int i = 13; i < 20; i++) {
+        	stack.push(currencies[i]);
+        }
+        stack.printStack();
+        System.out.println(stack.peek());
+        //stack.pop();
+        System.out.println(" ");
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
         
+        System.out.println(" ");
+        
+        stack.printStack();
+        
+        System.out.println(" ");
+        for (int i = 0; i < 5; i++) {
+        	stack.push(currencies[i]);
+        }
+        
+        stack.printStack();
+        
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(" ");
+        
+        stack.printStack();
+        stack.pop();
+        stack.pop();
+        System.out.println("end of stack code");
+
       //Code for Queue
-        for (int i = 5; i < currencies.length; i++) {
+        for (int i = 5; i <= 17; i++) {
             if (i % 2 == 1) {
                 queue.enQueue(currencies[i]);
             }
         }
-        queue.printQueue();
 
         System.out.println("Front of the queue: " + queue.peekFront());
         System.out.println("End of the queue: " + queue.peekRear());
 
         queue.deQueue();
         queue.deQueue();
+        System.out.println("After deQueue: ");
         queue.printQueue();
 
-        for (int i = 10; i <= 15; i++) {
+        for (int i = 10; i < 15; i++) {
             queue.enQueue(currencies[i]);
         }
 
         queue.deQueue();
         queue.deQueue();
         queue.deQueue();
+        System.out.println("After enQueue and 3 deQueue: ");
         queue.printQueue();
     }
 }
