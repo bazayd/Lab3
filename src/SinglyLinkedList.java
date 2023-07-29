@@ -1,6 +1,13 @@
-import org.w3c.dom.Node;
-import org.w3c.dom.css.CSSImportRule;
-
+/*
+ * Authors: Nicholas Kang, Brandon Arriaga
+ * Group 10 JAVA
+ *
+ * Lab 3
+ *
+ * Purpose: Creates a Linked List object that is able to add, remove, and find/get elements of type currency.
+ * The Linked List uses nodes of type LinkNode to set the head and the tail of the node along with the other nodes.
+ *
+ */
 public class SinglyLinkedList {
 
     protected int count;

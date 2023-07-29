@@ -1,5 +1,13 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/*
+ * Authors: Nicholas Kang, Brandon Arriaga
+ * Group 10 JAVA
+ *
+ * Lab 3
+ *
+ * Purpose: Creates A linked List, Stack, and Queue objected to append, remove, and print currency objects from
+ * the currencies array of dollar type elements.
+ *
+ */
 public class Main {
     public static void main(String[] args) {
 

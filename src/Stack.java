@@ -1,3 +1,14 @@
+/*
+ * Authors: Nicholas Kang, Brandon Arriaga
+ * Group 10 JAVA
+ *
+ * Lab 3
+ *
+ * Purpose: The Stack class is derived from the Linked List class, it can push elements to the top of a stack.
+ * It can pop elements from the top of the stack, and return elements from the top of the class. The stack is
+ * a great way to show examples of actual piles of money, in this case the dollar currency.
+ *
+ */
 public class Stack extends SinglyLinkedList{
     
 	
