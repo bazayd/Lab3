@@ -82,7 +82,7 @@ public class SinglyLinkedList {
         // while loop iterates through linked list until variable node becomes null thus reaching the end
         while (node != null) {
             // Checks if our node variable is equal to the currency we passed as a parameter
-            if (node.getData().equals(currency)) {
+            if (node.getData().isEqual(currency)) {
                 // if the previous node is null, we se the next node to the start/head of the list
                 // if the list only has 1 node (count == 1) we set the end of the list as null since it become empty
                 if (previous == null) {
@@ -155,9 +155,10 @@ public class SinglyLinkedList {
 
     public LinkNode findCurrency(Currency currency) {
     	LinkNode findNode = start;
-    	
+    	//System.out.println(findNode.getData());
     	while(findNode != null) {
-    		if (findNode.getData().equals(currency)) {
+    		System.out.println(findNode.getData());
+    		if (findNode.getData().isEqual(currency)) {
     			return findNode;
     		}else {
     			findNode = findNode.getNext();

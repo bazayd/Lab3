@@ -40,20 +40,25 @@ public class Main {
         	list.addCurrency(currencies[i], count);
         	count++;
         }
-//        System.out.println(list.findCurrency(87.43));
-//        System.out.println(list.findCurrency(44.56));
         
-        list.removeCurrency(new Dollar(111.22));
+        System.out.println(list.printList());
+        
+//        System.out.println(list.findCurrency(new Dollar(87.43)));
+//        System.out.println(list.findCurrency(new Dollar(44.56)));
+        
+        System.out.println(list.removeCurrency(new Dollar(111.22)));
         list.removeCurrency(2);
-        list.printList();
-        
+        System.out.println(list.printList());
+//        
         for (int i = 9; i <= 12; i++) {
         	list.addCurrency(currencies[i], i % 5);
         }
+        System.out.println(list.printList());
         
         list.removeCurrency(list.getCount() % 6);
+        System.out.println(list.printList());
         list.removeCurrency(list.getCount() / 7);
-        list.printList();
+        System.out.println(list.printList());
         
       //Code for Stack
         
