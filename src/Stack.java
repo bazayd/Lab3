@@ -12,10 +12,10 @@
 public class Stack extends SinglyLinkedList{
     
 	
-	public Stack(LinkNode start, LinkNode end) {
-        super(start, end);
-    }
-	
+	public Stack() {
+		super();
+	}
+
 	public void push(Currency obj) {
 		/*
 		 * increase object count
@@ -41,8 +41,21 @@ public class Stack extends SinglyLinkedList{
 	}
 	
 	public Currency pop() {
-		
-		//change start tot he next element
+		/*
+		*Pre: no parameter given
+		*
+		*Post: removes object from top of the stack
+		*
+		* Return: currency object
+		*
+		*PSEUDOCODE:
+		* pop func(no param)
+		* 	count set to count received minus 1
+		* 	topNode set to start of the stack]
+		* 	removed currency object is topNode
+		* 	start set to topNode's next node pointer
+		* 	top Node returned
+		 */
 		this.setCount(this.getCount() - 1);
 		LinkNode topNode = getStart();
 		Currency removed = topNode.getData();
@@ -53,6 +66,18 @@ public class Stack extends SinglyLinkedList{
 	
 	// take the start data and return it
 	public Currency peek() {
+		/*
+		*Pre: no parameter taken
+		*
+		*Post: top of stack peeked at
+		*
+		* Return: currency at top of stack
+		*
+		* PSEUDOCODE:
+		* peek func(no param)
+		* 	top node equal to start of the stack
+		* 	returns currency of top node
+		 */
 		LinkNode top = getStart();
 		return top.getData();
 		
@@ -61,6 +86,20 @@ public class Stack extends SinglyLinkedList{
 	//have a node element
 	//keep on taking the next element and print it
 	public void printStack() {
+		/*
+		*Pre: no param given
+		*
+		* Post: string of stack built
+		*
+		* Return: stack string
+		*
+		* PSEUDOCODE:
+		* printStack func(no param)
+		* 	current node is set to top of the stack
+		* 	while (current node is not null)
+		* 		current node gets printed out
+		* 		current set to current node's next pointer
+		 */
 		LinkNode cur = getStart();
 		while(cur != null) {
 			System.out.println(cur.getData()+ " ");

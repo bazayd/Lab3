@@ -52,7 +52,37 @@ public class SinglyLinkedList {
         this.end = end;
     }
 
+
     public void addCurrency(Currency currency, int index) {
+        /*
+        *Pre: currency of type Currency, index of type integer
+        *
+        * Post: illegal argument exception thrown if index is out of bounds otherwise currency added to given index
+        *
+        * Return: None, function is void
+        *
+        * PSEUDOCODE:
+        * addCurrency func (currency param, index param)
+        *   if (index is less than 0 or greater than list count)
+        *       out of bounds exception thrown
+        *
+        *   node set to currency object
+        *
+        *   if (index equals zero)
+        *       node next pointer set to start of the list
+        *       start of list equal to node
+        *       if (list count equals 0)
+        *           end equal to node given
+        *   else if (index equals to list count)
+        *       end next pointer equal to node
+        *       end/tail of node equal to given node
+        *   else
+        *       previouseNode is equal to index - 1
+        *       set current node next pointer to the previouse node's next pointer
+        *       previous Node next pointer set to the current node
+        *   count of list increments
+        *
+         */
         if (index < 0 || index > count) {
             throw new IllegalArgumentException("Index is out of bounds.");
         }
@@ -78,28 +108,51 @@ public class SinglyLinkedList {
     }
 
     public Currency removeCurrency(Currency currency) {
-        // Checks if list is empty, if it is then there are no nodes to remove
+        /*
+        *Pre: currency of type Currency
+        *
+        * Post: checks for node of type currency, going through entire linked list
+        *
+        * Return: currency or null if currency not found
+        *
+        *
+        * PSEUDOCODE:
+        * removeCurrency func (currency param)
+        *   if (count of list equal to zero)
+        *      return null
+        *   previous node equal to null
+        *   current node is equal to the start of the list
+        *
+        *   while (node is not null)
+        *       if (node's currency object is equal to parameter currency)
+        *           if (previous node is null)
+        *               start is equal to current node's next pointer
+        *               if (list count is equal to 1)
+        *                   end of list is equal to null
+        *           else
+        *               previous node's next pointer set to current node's next pointer
+        *               if (current node = end of list)
+        *                   end is now the previous node
+        *           count of list decremented
+        *           removed currency returned
+        *       previous equal to current node
+        *       node is now equal current node's next pointer
+        *   otherwise return null
+         */
         if (count == 0) {
             return null;
         }
 
-        // Previous node and the current node; previous is set to null and node to the start of the list
         LinkNode previous = null;
         LinkNode node = start;
 
-        // while loop iterates through linked list until variable node becomes null thus reaching the end
         while (node != null) {
-            // Checks if our node variable is equal to the currency we passed as a parameter
             if (node.getData().isEqual(currency)) {
-                // if the previous node is null, we se the next node to the start/head of the list
-                // if the list only has 1 node (count == 1) we set the end of the list as null since it become empty
                 if (previous == null) {
                     start = node.getNext();
                     if (count == 1) {
                         end = null;
                     }
-                    // if previous node is not null, previous is set to the node next of the current node
-                    // if the node is equal to the end of the list we set the end to the previous node
                 } else {
                     previous.setNext(node.getNext());
                     if (node == end) {
@@ -107,7 +160,6 @@ public class SinglyLinkedList {
                     }
                 }
 
-                // count of the list decrements and we return the currency we removed
                 count--;
                 return node.getData();
             }
@@ -117,24 +169,42 @@ public class SinglyLinkedList {
             node = node.getNext();
         }
 
-        // if the currency is not found it returns null
         return null;
     }
 
     public Currency removeCurrency(int index) {
-        // if index is less than 0 or greater than the list's size it throws an exception
+        /*
+        *Pre: index of type integer
+        *
+        *Post: exception thrown if index is not valid and otherwise finds currency with given index
+        *
+        * Return: currency at given index
+        *
+        * PSEUDOCODE:
+        *   removeCurrency func (index param)
+        *       if (index is less than 0 or index greater than or equal to count)
+        *           index out of bounds exception thrown
+        *       if (index is equal to 0)
+        *           currency is set to start of the list
+        *           start is now equal to start's next pointer
+        *           count of list decrements
+        *           if (count is equal to zero)
+        *               end is equal to null
+        *           currency returned
+        *       previous node is at index - 1
+        *       current node is at previous index's next pointer
+        *
+        *       previous node's next pointer set to current node's next pointer
+        *       list count decremented
+        *       if (node at the end of the list)
+        *           end is now previous node
+        *       currency removed returned
+         */
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException("Index is not valid");
         }
 
-        // if the index is 0, it starts and the start of the list
-
         if (index == 0) {
-            // currency object is taken from the start of the list (start.getData())
-            // start now equals to the next node, (the node next to the first list element)
-            // count decrements
-            // If the count is 0 then the list is empty thus making the end of the list null
-            // we then return currency object
             Currency currency = start.getData();
             start = start.getNext();
             count--;
@@ -144,14 +214,9 @@ public class SinglyLinkedList {
             return currency;
         }
 
-        // Previous node object with index - 1 and the current node object using previous.getNext()
         LinkNode previous = getNodeIndex(index - 1);
         LinkNode node = previous.getNext();
 
-        // previous node is set to the node next to the currenct node
-        // count of list decrements
-        // if the current node is the last node, then the end is set to the previous node
-        // currency object is returned
         previous.setNext(node.getNext());
         count--;
         if (node == end) {
@@ -161,24 +226,54 @@ public class SinglyLinkedList {
 
     }
 
-    public LinkNode findCurrency(Currency currency) {
+    public int findCurrency(Currency currency) {
+        /*
+        *Pre: currency of type Currency
+        *
+        * Post: finds currency with currency object param
+        *
+        * Return: index or -1 if currency not found
+        *
+        * PSEUDOCODE:
+        *   findCurrency func (currency param)
+        *       node to be found set to start of list
+        *       listIndex set to zero
+        *       while (node to be found isn't null)
+        *           if (node's currency equal to param currency)
+        *              index at where currency at is returned
+        *           else
+        *               node to be found's next pointer is set
+        *               index of list incremented
+        *       -1 returned if no currency is found
+        *
+         */
     	LinkNode findNode = start;
-    	//System.out.println(findNode.getData());
+        int listIndex = 0;
     	while(findNode != null) {
-    		//System.out.println(findNode.getData());
     		if (findNode.getData().isEqual(currency)) {
-    			return findNode;
+    			return listIndex;
     		}else {
     			findNode = findNode.getNext();
+                listIndex++;
     		}
     	}
-        return null;
+        return -1;
     }
 
     public Currency getCurrency(int index) {
     	/*
-    	 * loop index times
-    	 * return node once the loop ends
+    	 * Pre: index of type integer
+    	 *
+    	 * Post: get currency with parameter index
+    	 *
+    	 * Return: return currency
+    	 *
+    	 * PSEUDOCODE:
+    	 * getCurrency(index param)
+    	 *   currentNode is equal to start of the list
+    	 *   for (integer i equal to zero, i iterates while i is less than given index, i increments)
+    	 *         currentnode is equal to currentnode's next pointer
+    	 *   return currency found at index
     	 */
     	
     	LinkNode curNode = start;
@@ -191,9 +286,21 @@ public class SinglyLinkedList {
 
     public String printList() {
     	/*
-    	 * loop count times
-    	 * keep on getting the next and its data
-    	 * print out the data each time
+    	 *Pre: no parameter taken
+    	 *
+    	 * Post: constructs string of linked list
+    	 *
+    	 * Return: list string
+    	 *
+    	 * PSEUDOCODE:
+    	 * printList func(no param)
+    	 *  current node is set to start of the list
+    	 *  string resList equal to empty string
+    	 *
+    	 * for (integer i equal to 0, i less than list's count, i increments)
+    	 *    currency from current node appended to resLIst
+    	 *    current node's next pointer set
+    	 * return complete linked list in string form
     	 */
     	LinkNode curNode = start;
     	String resList = "";
@@ -209,25 +316,61 @@ public class SinglyLinkedList {
     }
 
     public boolean isListEmpty() {
+        /*
+        *Pre: no param given
+        *
+        * Post: checks for null list
+        *
+        * Return: true or false
+        *
+        * PSEUDOCODE:
+        * isListEmpty ( no param)
+        *   return true or false if start of list is null
+         */
         return start == null;
     }
 
     public int countCurrency() {
+        /*
+        *Pre: no param given
+        *
+        *Post: count of currency found
+        *
+        * Return: integer count of list
+        *
+        * Pseudocode:
+        * countCurrency func (no param)
+        *   return list's count
+        *
+         */
         return count;
     }
 
     private LinkNode getNodeIndex(int index) {
+        /*
+        *Pre: index of type integer
+        *
+        * Post: sets node to start of list and index at zero, gets node at index. Easy when index is given to
+        * avoid unnecessary code
+        *
+        * PSEUDOCODE:
+        * getNodeIndex func(index param)
+        *   node set to start of list
+        *   current Index is zero
+        *
+        *   while(current index is less than given index)
+        *       node is equal to node's next pointer
+        *       currentIndex incremented
+        *
+        *       if (node is equal to null)
+        *           exception thrown, out of bounds
+        *   node returned
+         */
 
-        // node set to start of the list
         LinkNode node = start;
 
-        // current index set to default zero
         int currIndex = 0;
 
-        // while the current index is less than the parameter index the loop iterates
-        // node is set to the next node in the list and the currentindex increases
-        // if the node is equal to null then the exception is thrown
-        // node is returned
         while (currIndex < index) {
             node = node.getNext();
             currIndex++;

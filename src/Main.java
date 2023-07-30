@@ -39,7 +39,7 @@ public class Main {
 
         //Create LInked list Stack and Queue Objects
         SinglyLinkedList list = new SinglyLinkedList();
-        Stack stack = new Stack(null, null);
+        Stack stack = new Stack();
         Queue queue = new Queue();
         
         //Code for SinglyLinkedList
@@ -54,9 +54,18 @@ public class Main {
         
         //B. 
         System.out.println("Find 87.43 and 44.56: ");
-        System.out.println(list.findCurrency(new Dollar(87.43)));
-        System.out.println(list.findCurrency(new Dollar(44.56)));
-        
+        if (list.findCurrency(new Dollar(87.43)) != -1) {
+            System.out.println("Index: " + list.findCurrency(new Dollar(87.43)));
+        }else {
+            System.out.println("Currency not found in list.");
+        }
+
+        if (list.findCurrency(new Dollar(44.56)) != -1) {
+            System.out.println("Index: " + list.findCurrency(new Dollar(44.56)));
+        }else {
+            System.out.println("Currency not found in list.");
+        }
+
         //C. 
         list.removeCurrency(new Dollar(111.22));
         list.removeCurrency(2);
