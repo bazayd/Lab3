@@ -95,8 +95,9 @@ public class Main {
         }
         
         //B. 
-        stack.peek();
+        System.out.println("Top of stack: " + stack.peek());
 
+        System.out.println("After 3 pops:");
         //C. 
         stack.pop();
         stack.pop();
@@ -111,7 +112,8 @@ public class Main {
         for (int i = 0; i < 5; i++) {
         	stack.push(currencies[i]);
         }
-        
+
+        System.out.println("After pushing 5 objects and popping twice: ");
         //F. 
         stack.pop();
         stack.pop();
