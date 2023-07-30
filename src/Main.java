@@ -121,7 +121,7 @@ public class Main {
         System.out.println("end of stack code");
 
       //Code for Queue
-        
+        System.out.println("Queue:");
         //A. 
         for (int i = 5; i <= 17; i++) {
             if (i % 2 == 1) {
@@ -154,5 +154,7 @@ public class Main {
         //G. 
         System.out.println("After enQueue and 3 deQueue: ");
         queue.printQueue();
+        System.out.println("End of Queue code.");
+        System.out.println("Thank you and we hope you enjoyed our ADT Demonstration.");
     }
 }
