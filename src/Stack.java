@@ -35,18 +35,6 @@ public class Stack extends SinglyLinkedList{
 		newNode.setNext(top);
 		setStart(newNode);
 		
-//		LinkNode bottom = getStart();
-//		LinkNode top = getEnd();
-//		LinkNode nextNode;
-//		
-//		if (this.getCount() == 0) {
-//			top = newNode;
-//			bottom = top;
-//			nextNode = null;
-//		}else {
-//			top = newNode;
-//			nextNode = bottom.getNext();
-//		}
 		
 		
 		
@@ -54,6 +42,7 @@ public class Stack extends SinglyLinkedList{
 	
 	public Currency pop() {
 		
+		//change start tot he next element
 		this.setCount(this.getCount() - 1);
 		LinkNode topNode = getStart();
 		Currency removed = topNode.getData();
@@ -62,12 +51,15 @@ public class Stack extends SinglyLinkedList{
 		
 	}
 	
+	// take the start data and return it
 	public Currency peek() {
 		LinkNode top = getStart();
 		return top.getData();
 		
 	}
 	
+	//have a node element
+	//keep on taking the next element and print it
 	public void printStack() {
 		LinkNode cur = getStart();
 		while(cur != null) {
