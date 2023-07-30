@@ -43,78 +43,106 @@ public class Main {
         Queue queue = new Queue();
         
         //Code for SinglyLinkedList
+        System.out.println("SinglyLinkedList: ");
+        
+        //A. 
         int count = 0;
         for (int i = 6; i >= 0; i--) {
         	list.addCurrency(currencies[i], count);
         	count++;
         }
-
-
+        
+        //B. 
+        System.out.println("Find 87.43 and 44.56: ");
+        System.out.println(list.findCurrency(new Dollar(87.43)));
+        System.out.println(list.findCurrency(new Dollar(44.56)));
+        
+        //C. 
+        list.removeCurrency(new Dollar(111.22));
+        list.removeCurrency(2);
+        
+        //D. 
+        System.out.println(list.printList());
+        
+        //E. 
         for (int i = 9; i <= 12; i++) {
         	list.addCurrency(currencies[i], i % 5);
         }
-        System.out.println(list.printList());
         
+        //F. 
         list.removeCurrency(list.getCount() % 6);
-        System.out.println(list.printList());
         list.removeCurrency(list.getCount() / 7);
+        
+        //G. 
         System.out.println(list.printList());
         System.out.println("End of linked list");
 
       //Code for Stack
+        //A. 
+        System.out.println("Stack: ");
+        
         for (int i = 13; i < 20; i++) {
         	stack.push(currencies[i]);
         }
+        
+        //B. 
+        stack.peek();
+
+        //C. 
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        
+        //D. 
         stack.printStack();
-        System.out.println(stack.peek());
-        //stack.pop();
-        System.out.println(" ");
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        System.out.println();
         
-        System.out.println(" ");
         
-        stack.printStack();
-        
-        System.out.println(" ");
+        //E. 
         for (int i = 0; i < 5; i++) {
         	stack.push(currencies[i]);
         }
         
-        stack.printStack();
-        
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(" ");
-        
-        stack.printStack();
+        //F. 
         stack.pop();
         stack.pop();
+        
+        //G. 
+        stack.printStack();
         System.out.println("end of stack code");
 
       //Code for Queue
+        
+        //A. 
         for (int i = 5; i <= 17; i++) {
             if (i % 2 == 1) {
                 queue.enQueue(currencies[i]);
             }
         }
-
+        
+        //B. 
         System.out.println("Front of the queue: " + queue.peekFront());
         System.out.println("End of the queue: " + queue.peekRear());
-
+        
+        //C. 
         queue.deQueue();
         queue.deQueue();
         System.out.println("After deQueue: ");
+        
+        //D. 
         queue.printQueue();
 
+        //E. 
         for (int i = 10; i < 15; i++) {
             queue.enQueue(currencies[i]);
         }
 
+        //F. 
         queue.deQueue();
         queue.deQueue();
         queue.deQueue();
+        
+        //G. 
         System.out.println("After enQueue and 3 deQueue: ");
         queue.printQueue();
     }

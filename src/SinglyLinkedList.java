@@ -165,7 +165,7 @@ public class SinglyLinkedList {
     	LinkNode findNode = start;
     	//System.out.println(findNode.getData());
     	while(findNode != null) {
-    		System.out.println(findNode.getData());
+    		//System.out.println(findNode.getData());
     		if (findNode.getData().isEqual(currency)) {
     			return findNode;
     		}else {
